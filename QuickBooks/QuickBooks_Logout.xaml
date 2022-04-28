@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="QuickBooks_Logout" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_sQuickBooksURL" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1202.4,1089.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>QuickBooks_Logout_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="QuickBooks_Logout" sap:VirtualizedContainerService.HintSize="475.2,1024.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Logging out of QuickBooks.&quot;]" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" ContinueOnError="True" DisplayName="Use Browser - QuickBooks Self-Employed" sap:VirtualizedContainerService.HintSize="433.6,666.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="01a82d4e-655b-4311-827f-88a1d101940c" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Logging Out" sap:VirtualizedContainerService.HintSize="375.2,449.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Opening Profile" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="01a82d4e-655b-4311-827f-88a1d101940c" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/home" DesignTimeRectangle="1539, 167, 86, 25" ElementType="Text" FriendlyName="'Aniruddha'" FullSelectorArgument="&lt;webctrl aaname='Aniruddha' parentid='gearmenudropdown1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*' parentid='gearmenudropdown1' tag='DIV' type='' class='header-label display-name' /&gt;" Guid="b3727c74-04e8-45d5-8c1e-872dd049ab39" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFoAAAAdCAYAAAAq9XvWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHiSURBVGhD7ZXdjcIwDIBvX+6JFfrEDBViDJAYgool6Ba+NLFLfuw2RRfrevInRUDqxM5Xt3yBoYKJVsJEK2GilTDRSphoJUy0EiZaCROtxP8UPd6h+z5Cdx1xYgEm9nU9weH7BLeK5bUsiB7h1h1dwiP0A059DO11gQfONGVXorGASfTh/MTJTzHRoujHOYjp/efvJm3ObkRTN0+dHH/fC3sRnSZaeOyjIsMTQKMs0l/v7vDC3zBcfGw/PKHHdf6wkqQ5Hn8TOP8eLvewvMda7Hx+vDbHc83G7TnitQhGNB48khISM4VTrBtvAfyNKUTTk5KsdWwQzdYV7VvK2xabnAHzl+tTsaHhStmFaF4qCc27GuezO017xFJE0XmXVIvmc3sKKVti+fpdYaGB4jNwCPVnouXXBL0a0uThAOtSZNHpfo5a0YygmXyPLbGOIDrvSkE0rp/2j0eeKxWNBS2OJNEfFZ3XtSXWUSuaffqF+iPRcjcT5funnej111HI3e7VsSZa6HDhpr5FCwdMKGIaiOZuOOXN4tmOwtz5/PbY9Y6WGi/fb2IWXS7iIAkU10L0BOXBMa1j9vREN2GOxbmirsrYWtFFnX4N7yT7MzRaYaKVMNFKmGglTLQSJloJE60CwA9Hc6vPNQpG4QAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1506, 137, 24, 85" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl parentid='gearmenudropdown1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='gearmenudropdown1' tag='DIV' type='' class='hi header-icon hi-settings-o' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAABZCAYAAAAtmERLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAO1SURBVGhD7ZbdSyJRGMb3/20JKxMrMcIWNYzICzcYQohhYS4qiCWNog/oQ1AxFtfFbbcujAwpoi4GUeTZ93xMjTqSF2e92D0/OOi8c+Y8Z96vMx8wYkYvePXrN0Y5/gOXyt+RoQWVowWVowWVowWVowWVowWVowWVowWVowXfsCuwluYxEwxg7OMkfEH6v7SDalPeH5KhBR/2lkloEYntI+QLOWStJMIkbFzKCUPiLWjfYCsRgC9koWQLUz0TJ8E0SuKS+AbDLfiYgxGaw0zqCLWWtHnQL/hchBGcxFgwjgj7nTW5aP3roqdg6sxG6+4Uq2zuAj0zwX4tlOVGe+kWbFaQ5g/KB2xalF2P06DFxybILmYSFZhT0s5GbFe8mbPh2D7qHTHTTZegiFMSB0/SwCBRcyWNgx8v8PJU664Ia+O0e/Gfm/C73e2i+w3vjxB9xyVAG/YzuVFe9dG5RzZGawTJ/R5r9MeQgp9yxc6h1aA3WZmHz3EhDd8nC/lGW84gOi/Ir89RCJaRvZO2HvoFievNeXrIwLkUtL9bCDtx7B3j80hfOjujt4uQLZUb6AEhyOIUoUIO0RvIhf1mhd9CkxJnWtpWKeWdQm/e49ygjXHRt821Lgxu882K9XqbAxcUk6ioN0xsHRapsIuoPvL7eD5OikUjux5ZZ+M8JTYT3r4VJtpIuXCELVorvdHfHLggL+ppC1Vu6qa0LhZMHL9ISw+FtNiQpxtFrbqfHVowdeFKDjeXUnDlFM/S9MYAQeHSJCxyJXNnvlBBXfpdtDTxBh5ZjrJJWUn3/V+uhIG71FlnEwm61+dSnjQhcQo4I3ood/V0igRPpACimVuX29p4ODN4gbP4b9WE1UkaZ7B+XO5Nmm7ayK/R5PAOrmWS1KkDvdbflMw+V1uLZu7FRKcs1orvlIUbp/BjJOja2UPBEo3ZEWZjIg6zINOZ4eoy+f6AcroFn4pvYl4B61Bba9xQjCq4blB782jO7KA2F4Tou61NNO84sg1pYLRucZLJoTZgxzyWN7fdCTV083aOI+eoYQcxcxF3YQD+tZwr9duo7hmIyFjOGDk8sDd+XWOI44lzty9OjNkkEtw1n3FSe0Fpg/VX03Ueihrzr+wgfyZ6rS+SRJSJDXAno1+Q8Vik3kplMpvGucyJgZ8YBXHVqomN+qh3esZf4i3ogRNf80wW9WFa4UeUF/xEmXOdhxTTv/mZqAotqBwtqBwtqBwtqBwtqBwtqBwtqBwtqBwtqBwtqJx/XRD4AzU+dW7K4O+4AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Clicking 'Sign out'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="01a82d4e-655b-4311-827f-88a1d101940c" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://selfemployed.intuit.com/home#/app/home" DesignTimeRectangle="1452, 526, 67, 19" ElementType="Text" FriendlyName="'Sign out'" FullSelectorArgument="&lt;webctrl aaname='Sign out' parentid='settingsmenu' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sign out' parentid='settingsmenu' tag='SPAN' type='' class='' check:innerText='Sign out' /&gt;" Guid="338fc698-d405-416d-b224-3ec9f04fdd38" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEcAAAAXCAYAAABZPlLoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGZSURBVFhH7ZXhcYMwDEY7GvOEYcIiOQbJHWPAGAqfZAdbEi5NoVcSvzt+xBGW/WyJL6qsUuUUqHIKVDkFqpwCVU4BI2e8tdQ0zfJcehrDf8zUU9u01E/h9xuTyRmuENLREH4DHrsmI58pZ6DuQza9MFJ/aai7h5+KKmebHAnMSsgFEvPSE8L7z36FGEc4yhJ9jMszxv7kUDCnzqPgue04WkR7kw5qeuv8aEmqIacb9AQAT05YsOlNmMeRg/G00d+7Qr4EjlOb4DEvR1mOsPnm5CxmPRH5GMfqrxrgRXoL1zelvEhBYvLNCZzfHMyBciL8tco2buXYpBEk336qZTnIq6UG9Jx/Jccm2kGOc8vOKcf0gx3K6iU5shHvEExZ8Rq1SO/9zXIwoQ6UsXxCKyfG2QWuNOSX5Mxsbchh0+l6Yg/15HjCwSJnGtXnVR67YE8OCAt6vosYxO4oh4nS0zweeRwEQJAREYTj0fm/L6tf4cg5EcfK4Zu4drL/n33kmKYN5Fqv1fMZ2EXOOPertHbXavhsHNxzzgzRA7LHH4q3uLneAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' title='QuickBooks Self-Employed' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="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" Selector="&lt;html app='chrome.exe' title='QuickBooks Self-Employed'/&gt;" Url="[in_sQuickBooksURL + &quot;*&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Logout Successful.&quot;]" />
+  </Sequence>
+</Activity>

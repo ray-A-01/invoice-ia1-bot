@@ -1,0 +1,166 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_sInvoicePeriod" Type="InArgument(x:String)" />
+    <x:Property Name="in_sInvoiceDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_sDueDate" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1202.4,826.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invokes major steps of the business process." DisplayName="Process" sap:VirtualizedContainerService.HintSize="375.2,698.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Hours" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours, Rate, and Details" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DetermineProjectDetails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvStartDate">[in_sInvoicePeriod.Split({"-"}, StringSplitOptions.None)(0).Trim]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Hours">[dt_Hours]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sTimeTrackerFile">[in_Config("TimeTracker_File").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours Breakdown" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DetermineHoursBreakdown.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailToCC">[in_Config("ErrorEmailToCC").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailTo">[in_Config("ErrorEmailTo").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sClientName">[in_Config("ClientName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoicePeriod">[in_sInvoicePeriod]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceFolder">[in_Config("Invoice_Folder").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sTimeTrackerFile">[in_Config("TimeTracker_File").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceDate">[in_sInvoiceDate]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Creating Invoice" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CreateInvoice.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceRecipient">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;InvoiceRecipient&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sQuickBooksURL">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;QuickBooksURL&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sDueDate">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sDueDate" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Hours">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_Hours" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailTo">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ErrorEmailTo&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sQuickBooksCredentialsAsset">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;QuickBooksCredentialsAsset&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailToCC">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ErrorEmailToCC&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceDate">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sInvoiceDate" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sClientName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ClientName&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceFolder">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Invoice_Folder&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Double" x:Key="in_dblInvoiceNum">
+          <mva:VisualBasicValue x:TypeArguments="x:Double" ExpressionText="CDbl(in_Config(&quot;IA1InvoiceNumber&quot;))" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvNumberAsset">
+          <Literal x:TypeArguments="x:String">IA1_InvoiceNumber</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Preparing And Sending Invoice Email" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="PrepareAndSendInvoiceEmail.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoicePeriod">[in_sInvoicePeriod]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceEmailBodyTemplate">[in_Config("InvoiceEmailBodyTemplate").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sMyCompanyName">[in_Config("MyCompanyName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sMyCompanyPhone">[in_Config("MyCompanyPhone").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sMyCompanyAddress">[in_Config("MyCompanyAddress").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceEmailTo">[in_Config("InvoiceEmailTo").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceEmailToCC">[in_Config("InvoiceEmailToCC").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceDate">[in_sInvoiceDate]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sClientName">[in_Config("ClientName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceFolder">[in_Config("Invoice_Folder").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sMyCompanyLogoPath">[in_Config("MyCompanyLogoPath").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>
