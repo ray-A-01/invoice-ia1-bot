@@ -1,0 +1,9 @@
+quickbooks_api:
+  authentication:
+    client_id: 
+    client_secret: 
+    discovery_doc: 
+    refresh_token: 
+  base_url: 
+  company_id: 
+  minor_version: 65
