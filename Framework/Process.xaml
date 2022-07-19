@@ -76,10 +76,11 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invokes major steps of the business process." DisplayName="Process" sap:VirtualizedContainerService.HintSize="375.2,698.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invokes major steps of the business process." DisplayName="Process" sap:VirtualizedContainerService.HintSize="375.2,746.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Hours" />
     </Sequence.Variables>
@@ -89,14 +90,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours, Rate, and Details" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DetermineProjectDetails.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours, Rate, and Details" sap:VirtualizedContainerService.HintSize="333.6,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DetermineProjectDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvStartDate">[in_sInvoicePeriod.Split({"-"}, StringSplitOptions.None)(0).Trim]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_Hours">[dt_Hours]</OutArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_sTimeTrackerFile">[in_Config("TimeTracker_File").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours Breakdown" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DetermineHoursBreakdown.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Determining Project Hours Breakdown" sap:VirtualizedContainerService.HintSize="333.6,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DetermineHoursBreakdown.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailToCC">[in_Config("ErrorEmailToCC").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_sErrorEmailTo">[in_Config("ErrorEmailTo").ToString]</InArgument>
@@ -107,13 +108,10 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceDate">[in_sInvoiceDate]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Creating Invoice" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CreateInvoice.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Creating Invoice" sap:VirtualizedContainerService.HintSize="333.6,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CreateInvoice.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceRecipient">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;InvoiceRecipient&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_sQuickBooksURL">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;QuickBooksURL&quot;).ToString" />
         </InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_sDueDate">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sDueDate" />
@@ -145,9 +143,21 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvNumberAsset">
           <Literal x:TypeArguments="x:String">IA1_InvoiceNumber</Literal>
         </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sPythonHomePath">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PythonHomePath&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sPythonScriptPath">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PythonScriptFilePath&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sWorkingFolder">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;PythonWorkingFolder&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_sInvoicePeriod">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_sInvoicePeriod" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Preparing And Sending Invoice Email" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="PrepareAndSendInvoiceEmail.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Preparing And Sending Invoice Email" sap:VirtualizedContainerService.HintSize="333.6,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="PrepareAndSendInvoiceEmail.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvoicePeriod">[in_sInvoicePeriod]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_sInvoiceEmailBodyTemplate">[in_Config("InvoiceEmailBodyTemplate").ToString]</InArgument>
