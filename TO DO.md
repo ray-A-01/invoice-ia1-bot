@@ -1,1 +1,4 @@
-
+- [x] Use API for QuickBooks steps
+- [x] Wherever applicable, update code per Workflow Analyzer results:
+  - [x] Manage Deeply Nested Activities
+- [ ] Add SDD
