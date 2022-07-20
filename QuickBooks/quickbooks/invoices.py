@@ -304,7 +304,7 @@ def get_invoice_pdf(access_token: str, invoice_id: int,
         + "/pdf?minorversion=" + MINOR_VERSION,
         headers=headers,
         timeout=30)
-    logging.info("Response status: " + str(resp.status_code))
+    logging.debug("Response status: " + str(resp.status_code))
     if resp.status_code != 200:
         logging.error("Error Desc.: \n" + resp.text)
         return False
@@ -314,7 +314,7 @@ def get_invoice_pdf(access_token: str, invoice_id: int,
     try:
         with open(file_path, "wb") as file:
             file.write(resp.content)
-        logging.info("Data saved.")
+        logging.debug("Data saved.")
     except Exception as err:
         logging.error("Error Desc.: \n {0}".format(err))
         return False
