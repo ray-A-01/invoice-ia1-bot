@@ -15,4 +15,4 @@ This bot was built using UiPath particularly to practice my UiPath skills.
  4. Prepare and send invoice email to client
 
 ### Where can I find more details on the process?
-Please refer to the PDD for the business process located in the Documentation folder. It contains detailed steps performed as part of the billing process. Also, refer to the input files as well as the output files to better understand how the bot works.
+Please refer to the Process Definition Document (PDD) and Solution Design Document (to be uploaded soon) for the business process located in the Documentation folder. It contains detailed steps performed as part of the billing process. Also, refer to the input files as well as the output files to better understand how the bot works.
